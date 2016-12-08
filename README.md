@@ -1,2 +1,0 @@
-# BlenderAddonLibrary
-マイブレンダーアドオンライブラリ編集のテスト
