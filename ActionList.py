@@ -1,25 +1,20 @@
-#======================================================================================================================
-#  @file    ActionList.py
-#  @author  Yoshinori.Ono
-#
-#======================================================================================================================
 import bpy
 # plugin info
 bl_info = {
-    "name" : "ACTION_UL_list",
+    "name" : "ActionList",
     "author" : "yoshinori.ono",
     "version" : (0, 1),
     "blender" : (2, 7, 4),
     "location" : "PROPERTIES > WINDOW > UIList",
-    "description" : "ACTION_UL_list",
+    "location" : "",
+    "description" : "ActionList",
     "warning" : "",
-    "support": "TESTING",
     "wiki_url" : "",
     "tracker_url" : "",
     "category" : "User"
 }
 
-class ACTION_UL_list(bpy.types.UIList):
+class ActionList(bpy.types.UIList):
     def draw_item(self, context, layout, data, item, icon, active_data, active_propname):
         ob = data
         if self.layout_type in {'DEFAULT', 'COMPACT'}:
@@ -29,11 +24,14 @@ class ACTION_UL_list(bpy.types.UIList):
 
 class UIListPanelExample(bpy.types.Panel):
     """Creates a Panel in the Object properties window"""
-    bl_label = "Action_List panel"
-    bl_idname = "OBJECT_PT_ui_list_example"
+    bl_label = "ActionList Panel"
+    bl_idname = "OBJECT_PT_action_list"
     bl_space_type = 'PROPERTIES'
     bl_region_type = 'WINDOW'
-    bl_context = "object"
+    bl_context = "data"
+    # bl_space_type = 'DOPESHEET_EDITOR'
+    # bl_region_type = 'UI'
+    # bl_context = "object"
 
     def draw(self, context):
         layout1 = self.layout
@@ -47,7 +45,7 @@ class UIListPanelExample(bpy.types.Panel):
         else:
             layout2.label("No animation_data.")
 
-        layout1.template_list("ACTION_UL_list", "", bpy.data, "actions", ob, "action_list_index")
+        layout1.template_list("ActionList", "", bpy.data, "actions", ob, "action_list_index")
 
 def register():
     bpy.types.Object.action_list_index = bpy.props.IntProperty()
