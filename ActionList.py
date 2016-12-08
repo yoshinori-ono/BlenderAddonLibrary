@@ -29,13 +29,10 @@ class ACTION_UL_list(bpy.types.UIList):
 
 class UIListPanelExample(bpy.types.Panel):
     """Creates a Panel in the Object properties window"""
-    #bl_label = "UIList Panel"
     bl_label = "Action_List panel"
     bl_idname = "OBJECT_PT_ui_list_example"
     bl_space_type = 'PROPERTIES'
-    # bl_space_type = 'DOPESHEET_EDITOR'
     bl_region_type = 'WINDOW'
-    # bl_region_type = 'UI'
     bl_context = "object"
 
     def draw(self, context):
