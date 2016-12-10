@@ -1,3 +1,10 @@
+#=====================================================================================================
+#I referred to this site
+#"url"https://blenderartists.org/forum/showthread.php?376910-UI-list-for-actions
+#
+#This add-on can select actions & can rename with list.
+#=====================================================================================================
+
 import bpy
 # plugin info
 bl_info = {
